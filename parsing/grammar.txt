@@ -1,0 +1,11 @@
+program ::= {statement}
+statement ::= "dekhao" (expression | string) nl
+            | "agar" comparison "ni tu" nl {statement}
+            | "jbtk" comparison "REPEAT" nl {statement} "ENDWHILE" nl
+            | "btao" ident nl
+comparison ::= expression (("barabarh" | "barabarnih" | "badah" | "badayabarabar" | "chotah" | "chotayabarbar") expression)+
+expression ::= term {( "-" | "+" ) term}
+term ::= unary {( "/" | "*" ) unary}
+unary ::= ["+" | "-"] primary
+primary ::= number | ident
+nl ::= '\n'+
